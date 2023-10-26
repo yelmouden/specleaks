@@ -9,7 +9,7 @@ import Foundation
 import Quick
 import Nimble
 
-public func leak() -> Predicate<LeakTest> {
+public func leak() -> Matcher<LeakTest> {
 
     return Predicate.simple("leak") { expression in
 
@@ -21,12 +21,12 @@ public func leak() -> Predicate<LeakTest> {
     }
 }
 
-public func leakWhen<P>(_ action : @escaping (P) -> Any) -> Predicate<LeakTest> where P: AnyObject {
+public func leakWhen<P>(_ action : @escaping (P) -> Any) -> Matcher<LeakTest> where P: AnyObject {
 
-    return Predicate.simple("leak when") { expression in
+    return Matcher.simple("leak when") { expression in
 
         guard let leakTest = try expression.evaluate() else {
-            return PredicateStatus.fail
+            return MatcherStatus.fail
         }
 
         return leakTest.isLeaking(when: action)
