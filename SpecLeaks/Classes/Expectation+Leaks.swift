@@ -10,10 +10,10 @@ import Foundation
 import Nimble
 
 public typealias LeakTestConstructor = () -> AnyObject
-
+/*
 extension Expectation where T==LeakTestConstructor {
 
-    public func toNotLeak(timeout: DispatchTimeInterval = AsyncDefaults.timeout, pollInterval: DispatchTimeInterval = AsyncDefaults.pollInterval, description: String? = nil, shouldFail: Bool = false) {
+    public func toNotLeak(timeout: NimbleTimeInterval = AsyncDefaults.timeout, pollInterval: NimbleTimeInterval = AsyncDefaults.pollInterval, description: String? = nil, shouldFail: Bool = false) {
         do {
             guard let constructor = try expression.evaluate() else {
                 fail()
@@ -66,3 +66,4 @@ extension Expectation where T==LeakTestConstructor {
     }
 
 }
+*/
